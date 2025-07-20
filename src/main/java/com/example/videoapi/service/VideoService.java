@@ -18,7 +18,7 @@ public class VideoService {
 
     public void addVideo(Video video) {
         // Validate that movie and series are exclusive
-        if (video instanceof Movie && video instanceof Series) {
+        if (!(video instanceof Movie) && !(video instanceof Series)) {
             throw new IllegalArgumentException("Invalid video type");
         }
         videoDataAccess.save(video);
